@@ -57,29 +57,22 @@ ml-charge-classifier-e2e-pipeline/
 
 Create a .env file in the root directory with the following content:
 
-<pre><code>
-API_CHARGE_CLASSIFICATION = "http://server:8000/ChargeCategory"
-</code></pre>
+<pre><code>API_CHARGE_CLASSIFICATION = "http://server:8000/ChargeCategory"</code></pre>
 
 2. Run Airflow to train the model
 
 - Navigate to Airflow directory
-<pre><code>
-cd server/airflow
-</code></pre>
+<pre><code>cd server/airflow</code></pre>
 
 - Initialize Airflow containers:
-<pre><code>
-docker compose up airflow-init
-</code></pre>
+<pre><code>docker compose up airflow-init</code></pre>
 Wait until: airflow-init-1 exited with code 0
 
 - Start Airflow Docker container
-<pre><code>
-docker-compose up -d
-</code></pre>
+<pre><code>docker-compose up -d</code></pre>
 
 3. Trigger training DAG
+
 Via Web UI:
 
 - Access: https://localhost:8080
@@ -90,40 +83,26 @@ Via Web UI:
 Via CLI:
 
 - Trigger DAG:
-<pre><code>
-docker exec -it airflow-airflow-scheduler-1 airflow dags trigger invoice_description_model_training 
-</code></pre>
+<pre><code>docker exec -it airflow-airflow-scheduler-1 airflow dags trigger invoice_description_model_training</code></pre>
 - Check DAG run status:
-<pre><code>
-docker exec -it airflow-airflow-scheduler-1 airflow dags list-runs invoice_description_model_training 
-</code></pre>
+<pre><code>docker exec -it airflow-airflow-scheduler-1 airflow dags list-runs invoice_description_model_training</code></pre>
 
 4. Shut down Airflow once training completes
-<pre><code>
-docker compose down -v
-</code></pre>
+<pre><code>docker compose down -v</code></pre>
 
 5. Start client and server containers by cd back to root directory of the repo
 
 6. Clean up logs (PowerShell)
-<pre><code>
-Remove-Item -Path .\server\airflow\logs\* -Recurse -Force
-</code></pre>
+<pre><code>Remove-Item -Path .\server\airflow\logs\* -Recurse -Force</code></pre>
 
 7. Start server container
-<pre><code>
-docker compose up -d server
-</code></pre>
+<pre><code>docker compose up -d server</code></pre>
 
 8. Start client container
-<pre><code>
-docker compose run --rm client
-</code></pre>
+<pre><code>docker compose run --rm client</code></pre>
 
 9. To shut everything down
-<pre><code>
-docker compose down --rmi all
-</code></pre>
+<pre><code>docker compose down --rmi all</code></pre>
 
 
 # 📝Notes
