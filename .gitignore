@@ -1,0 +1,11 @@
+airflow/logs/
+airflow/logs/**
+
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+.venv/
+client/.env

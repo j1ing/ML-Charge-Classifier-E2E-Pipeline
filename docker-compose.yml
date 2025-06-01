@@ -1,0 +1,17 @@
+services:
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/docs"]
+      interval: 5s
+      retries: 5
+
+  client:
+    build: ./client
+    env_file:
+      - ./client/.env
+    depends_on:
+      server:
+        condition: service_healthy
