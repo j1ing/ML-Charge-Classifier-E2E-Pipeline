@@ -1,7 +1,7 @@
 # 🧠Overview
-This project demonstrates a complete ML workflow that includes data processing, model training, and deployment using modern tools:
+This project demonstrates a complete NLP workflow that includes data processing, model training, and deployment using modern tools:
 
-- Machine Learning: Training a charge description classification model.
+- Machine Learning (NLP): Training a charge description classification model.
 
 - Airflow: Orchestrating the workflow with DAGs, scheduling, and automation.
 
